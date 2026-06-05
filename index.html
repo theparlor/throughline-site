@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Throughline — trace every decision back to the vision it serves</title>
+<meta name="description" content="Throughline owns the vision-thread artifact and decision-to-vision traceability. Every decision declares which thread it serves. Direction stays auditable, not aspirational.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#17120e; --ground-2:#211a13; --ground-3:#2b2219; --line:#3a2f23;
+    --molten:#E8772B; --molten-hot:#FF8C3A; --ember:#F2A24A;
+    --brass:#C9A45C; --brass-bright:#E3C688; --brass-dim:#9A7F4E;
+    --steel:#7E8A98; --steel-light:#AAB4C0; --steel-deep:#5B6573;
+    --bone:#ECE3D4; --bone-dim:#B3A890; --bone-faint:#85795F;
+    --maxw:960px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--bone);font-family:'Spectral',Georgia,serif;font-weight:400;line-height:1.65;
+    background-image:radial-gradient(ellipse 70% 45% at 50% -8%, rgba(232,119,43,0.10), transparent 62%);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:var(--brass-bright);text-decoration:none}
+  a:hover{color:var(--ember)}
+  h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+
+  .ptbanner{background:rgba(232,119,43,0.07);border-bottom:1px solid var(--line);padding:9px 24px;text-align:center;font-size:12.5px;color:var(--bone-dim)}
+  .ptbanner b{color:var(--molten);font-weight:700;font-family:'Spectral';text-transform:uppercase;letter-spacing:1px}
+
+  /* shared product-site nav: back to portfolio + behind the veil */
+  nav.top{position:sticky;top:0;z-index:30;background:rgba(23,18,14,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:18px;height:62px;flex-wrap:wrap;max-width:1100px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Playfair Display';font-weight:700;font-size:18px;color:var(--bone)}
+  .brand .mark{color:var(--brass)}
+  .brand .sep{color:var(--bone-faint);font-weight:400}
+  .brand .pname{color:var(--brass-bright)}
+  nav.top .spacer{flex:1}
+  nav.top a.nl{color:var(--bone-dim);font-size:13.5px}
+  nav.top a.nl:hover{color:var(--bone)}
+  nav.top a.veil{color:var(--steel-light);border:1px solid var(--steel-deep);border-radius:20px;padding:6px 15px;font-size:13px}
+  nav.top a.veil:hover{color:var(--bone);border-color:var(--steel-light)}
+
+  header.hero{padding:78px 0 50px}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass);margin-bottom:22px;font-weight:600}
+  h1.title{font-size:clamp(38px,6vw,64px);font-weight:800;line-height:1.05;letter-spacing:-0.5px;color:var(--bone)}
+  h1.title em{font-style:italic;color:var(--molten);font-weight:700}
+  .lede{font-size:clamp(17px,2.1vw,21px);color:var(--bone-dim);max-width:60ch;margin-top:24px;font-weight:300}
+  .lede strong{color:var(--bone);font-weight:500}
+  .forge-rule{margin:38px 0 0;height:2px;background:linear-gradient(90deg,var(--molten-hot),var(--ember) 28%,var(--brass) 60%,var(--steel) 100%);border-radius:2px;opacity:.85}
+
+  section{padding:50px 0;border-top:1px solid var(--line)}
+  .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--brass);margin-bottom:14px;font-weight:600}
+  h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;color:var(--bone);letter-spacing:-0.3px;line-height:1.14}
+  p.body{font-size:16.5px;color:var(--bone-dim);max-width:66ch;margin-top:18px;font-weight:300}
+  p.body strong{color:var(--bone);font-weight:500}
+  .pull{font-family:'Playfair Display';font-style:italic;font-size:clamp(20px,2.6vw,26px);color:var(--brass-bright);line-height:1.4;margin:30px 0;padding-left:22px;border-left:3px solid var(--molten)}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+  .step{background:var(--ground-2);border:1px solid var(--line);border-radius:10px;padding:22px}
+  .step .n{font-family:'Playfair Display';font-size:30px;font-weight:800;color:var(--molten);line-height:1}
+  .step h3{font-size:18px;font-weight:700;color:var(--bone);margin:10px 0 8px}
+  .step p{font-size:14px;color:var(--bone-dim);line-height:1.55;font-weight:300}
+
+  .law{background:linear-gradient(135deg,rgba(232,119,43,0.06),rgba(33,26,19,0.4));border:1px solid var(--brass-dim);border-radius:12px;padding:30px 32px;margin-top:30px}
+  .law .role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--molten);font-weight:600}
+  .law h3{font-family:'Playfair Display';font-size:24px;color:var(--brass-bright);margin:8px 0 12px}
+  .law p{font-size:15px;color:var(--bone-dim);line-height:1.65;max-width:66ch;font-weight:300}
+  .law p strong{color:var(--bone);font-weight:500}
+
+  .two-ch{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .ch{background:var(--ground-2);border:1px solid var(--line);border-radius:10px;padding:22px}
+  .ch .t{font-family:'Playfair Display';font-size:18px;font-weight:700;margin-bottom:8px}
+  .ch.assert .t{color:var(--steel-light)} .ch.dissent .t{color:var(--ember)}
+  .ch p{font-size:14px;color:var(--bone-dim);line-height:1.55;font-weight:300}
+
+  /* veil — warm cools to system plane */
+  .veil-section{border-top:1px solid var(--line);background:linear-gradient(180deg, var(--ground) 0%, #141821 100%)}
+  .veil-section .kicker{color:var(--steel-light)}
+  .veil-line{margin:24px 0;height:2px;background:linear-gradient(90deg,var(--molten) 0%, var(--brass) 30%, var(--steel) 70%, var(--steel-deep) 100%);border-radius:2px}
+  .veil-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+  .veil-card{background:#151a23;border:1px solid #243044;border-radius:12px;padding:24px 26px}
+  .veil-card .role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--steel-light);font-weight:600;font-family:'Spectral'}
+  .veil-card h3{font-family:'Playfair Display';font-size:22px;font-weight:700;color:#cdd8e6;margin:7px 0 9px}
+  .veil-card p{font-size:14px;color:#9fb0c4;line-height:1.55;margin-bottom:14px;font-weight:300}
+  .veil-card a.enter{color:#7fd0f2;font-weight:600;font-size:14.5px;font-family:'Spectral'}
+  .veil-card a.enter:hover{color:#a9e0fb}
+
+  footer{padding:42px 0 56px;border-top:1px solid #243044;background:#141821;color:var(--steel);font-size:13px}
+  footer .wrap{font-family:'Spectral';max-width:1100px}
+  footer .prov{margin-top:9px;color:var(--steel-deep);font-size:12px}
+
+  @media(max-width:760px){.steps,.two-ch,.veil-grid{grid-template-columns:1fr}nav.top a.nl{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ptbanner"><b>v0 · pressure-test</b> &nbsp;·&nbsp; not public, not indexed &nbsp;·&nbsp; built, used, still being challenged</div>
+
+<nav class="top"><div class="wrap">
+  <span class="brand"><span class="mark">&#9874;</span> The Parlor <span class="sep">/</span> <span class="pname">Throughline</span></span>
+  <span class="spacer"></span>
+  <a class="nl" href="https://theparlor.github.io/portfolio-site/">&larr; All products</a>
+  <a class="veil" href="#veil">Behind the veil &rarr;</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Composition &amp; synthesis</div>
+  <h1 class="title">Every decision, <em>traced</em>, back to the vision it serves.</h1>
+  <p class="lede">Throughline owns the single line of meaning that holds a body of work together. It produces <strong>vision-thread artifacts</strong> &mdash; the canonical, traced articulation of what you are building toward &mdash; and wires every downstream decision back to that thread with a declared hook. Direction becomes <strong>auditable, not aspirational</strong>.</p>
+  <div class="forge-rule"></div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="kicker">The problem it solves</div>
+  <h2>"We're all aligned" is the most expensive assumption in a portfolio.</h2>
+  <p class="body">Alignment doesn't break loudly. It erodes quietly &mdash; one undeclared assumption at a time, one decision that felt consistent but wasn't traced. By the time the drift is visible, it has compounded through a dozen specs, a handful of product bets, and months of work all pointing at slightly different stars. Throughline intervenes structurally: every artifact declares the thread it serves, so the gap between "what we said we were doing" and "what we are actually doing" is machine-readable, not a retrospective conversation.</p>
+  <div class="pull">Vision without traceability is a slogan. A vision-thread with declared hooks is an auditable contract with your future self.</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">How you use it</div>
+  <h2>Name the thread. Wire the work. Read the drift.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Emit the vision-thread</h3><p>Author the canonical vision-thread artifact &mdash; the traced, specific statement of what the portfolio is becoming. Not a slogan. A structured document that coherence scoring can reason against.</p></div>
+    <div class="step"><div class="n">2</div><h3>Hook every decision</h3><p>Each downstream artifact (spec, decision, plan, signal) declares a thread-hook back to the vision-thread entry it serves. The hook is structural &mdash; not a comment, a first-class frontmatter field.</p></div>
+    <div class="step"><div class="n">3</div><h3>Trace and extract</h3><p>Walk any decision back to the vision it serves in one command. Extract the coherent narrative from artifact clusters for publishing. Contradictions surface as explicit forks &mdash; they don't dissolve into consensus.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">What makes it different</div>
+  <h2>The conservation law: threads do not merge without supersession.</h2>
+  <div class="law">
+    <div class="role">The rule the whole product is built around</div>
+    <h3>Narrative coherence is not consensus.</h3>
+    <p>Most "alignment" tools either impose a mandate top-down (OKR cascades) or collect back-references voluntarily (decision logs). Throughline refuses both. The thread-hook is <strong>a first-class artifact property</strong> &mdash; every downstream artifact is structurally required to declare which vision-thread entry it serves. Contradictory threads are treated as <strong>candidate forks or explicit supersessions</strong>, never quietly resolved into averaged language. The output is two traceable surfaces that are never collapsed:</p>
+    <div class="two-ch">
+      <div class="ch assert"><div class="t">Vision-thread artifacts</div><p>The canonical, traced statement of what the portfolio is becoming &mdash; authored, versioned, and coherence-scored.</p></div>
+      <div class="ch dissent"><div class="t">Decision-to-vision trace</div><p>The auditable walk from any decision, spec, or signal back to the thread entry it serves. Contradictions surface here, not silently downstream.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="veil" class="veil-section"><div class="wrap">
+  <div class="kicker">Behind the veil</div>
+  <h2>How Throughline was forged.</h2>
+  <p class="body">Throughline wasn't designed in a slide deck. It was built &mdash; and is still governed &mdash; by the same machinery that built every product in this portfolio. The vision-thread spec is ratified; the thread-hook is a live frontmatter convention already wired across dozens of portfolio decisions. Slip behind the veil to see the operating model that produced it and the system it composes into.</p>
+  <div class="veil-line"></div>
+  <div class="veil-grid">
+    <div class="veil-card">
+      <div class="role">The operating model</div>
+      <h3>Intent</h3>
+      <p>Throughline carries its own <code>.intent/</code> governance &mdash; signals, specs, decisions, traced in git. The thread-hook conservation law is a ratified spec (SPEC-001); the <code>trace-decision-to-vision</code> verb enforces it at runtime. Throughline was itself built through Intent's Notice &rarr; Spec &rarr; Execute &rarr; Observe loop, and the gates are open in version control.</p>
+      <a class="enter" href="https://theparlor.github.io/intent-site/">See the operating model &rarr;</a>
+    </div>
+    <div class="veil-card">
+      <div class="role">The overhead view</div>
+      <h3>Parallax</h3>
+      <p>Throughline occupies the <em>narrative-coherence</em> position in the Parallax ecosystem &mdash; it is the Phase 1 opening name, the zero-lookup-cost wedge. Vision-thread extractions from Throughline feed Parallax's publishable surface directly. See where it sits among the other implements and what the full coherence stack is becoming.</p>
+      <a class="enter" href="https://theparlor.github.io/parallax-site/">See the overhead view &rarr;</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><span class="mark" style="color:var(--brass)">&#9874;</span> The Parlor / Throughline &mdash; <strong style="color:var(--steel-light)">v0, forged in the open</strong>. <a href="https://theparlor.github.io/portfolio-site/" style="color:var(--steel-light)">&larr; All products</a></div>
+  <div class="prov">Rendered in the Foundry type system (product plane). Source &amp; governance: <code style="color:var(--steel-deep)">Core/products/throughline/</code> (behind the veil). noindex &middot; not public &middot; built to be challenged.</div>
+</div></footer>
+
+</body>
+</html>
