@@ -144,6 +144,220 @@
   </div>
 </div></section>
 
+<section id="diagrams">
+<style>
+  #diagrams .diag-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
+  #diagrams .diag-block{background:var(--ground-2);border:1px solid var(--line);border-radius:12px;padding:22px 20px 18px}
+  #diagrams .diag-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px;font-family:'Spectral'}
+  @media(max-width:760px){#diagrams .diag-pair{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <div class="kicker">How it comes to be &middot; where it lives</div>
+  <h2>Two views of the machine.</h2>
+  <p class="body">The first diagram traces how a single Throughline run unfolds &mdash; from artifact declaring a thread-hook through tracing to a decision and up through the vision-thread to narrative extraction. The second shows where Throughline sits in the portfolio: Phase&nbsp;1 lead of the Parallax ecosystem, which products it reads, what it feeds, and the Intent governance loop that holds it together.</p>
+
+  <div class="diag-pair">
+
+    <!-- DIAGRAM 1: FLOW — How it comes to be -->
+    <div class="diag-block">
+      <div class="diag-label">How it comes to be</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Flow diagram: how a Throughline run works">
+        <defs>
+          <linearGradient id="tl-flow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#E8772B"/>
+            <stop offset="100%" stop-color="#7E8A98"/>
+          </linearGradient>
+          <linearGradient id="tl-thread" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A45C"/>
+            <stop offset="100%" stop-color="#9A7F4E"/>
+          </linearGradient>
+          <marker id="tl-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.75"/>
+          </marker>
+          <marker id="tl-arr-m" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.75"/>
+          </marker>
+        </defs>
+
+        <!-- Step labels above the flow -->
+        <text x="32" y="42" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">artifacts</text>
+        <text x="32" y="52" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">declare</text>
+
+        <!-- Node 1: Artifact -->
+        <rect x="8" y="60" width="70" height="38" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="43" y="76" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">artifact</text>
+        <text x="43" y="88" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">(spec/signal)</text>
+
+        <!-- thread-hook badge -->
+        <rect x="10" y="102" width="66" height="13" rx="4" fill="rgba(201,164,92,0.12)" stroke="#9A7F4E" stroke-width="0.7"/>
+        <text x="43" y="111" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#C9A45C">thread-hook</text>
+
+        <!-- Arrow 1→2 -->
+        <line x1="78" y1="79" x2="98" y2="79" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#tl-arr)"/>
+
+        <!-- Node 2: thread-hook declared -->
+        <rect x="100" y="60" width="76" height="38" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="138" y="75" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">hook</text>
+        <text x="138" y="87" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">declared</text>
+
+        <!-- arrow label -->
+        <text x="88" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">wires</text>
+
+        <!-- Arrow 2→3 -->
+        <line x1="176" y1="79" x2="196" y2="79" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#tl-arr)"/>
+
+        <!-- Node 3: decision (trace target) -->
+        <rect x="198" y="60" width="76" height="38" rx="7" fill="#2b2219" stroke="#E8772B" stroke-width="1.4"/>
+        <text x="236" y="75" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">decision</text>
+        <text x="236" y="87" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">(trace target)</text>
+
+        <!-- Arrow 2→3 label -->
+        <text x="186" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">traces</text>
+
+        <!-- Arrow 3→4 -->
+        <line x1="274" y1="79" x2="294" y2="79" stroke="#E8772B" stroke-width="1.4" marker-end="url(#tl-arr-m)"/>
+
+        <!-- Node 4: vision-thread -->
+        <rect x="296" y="52" width="84" height="54" rx="8" fill="#211a13" stroke="#C9A45C" stroke-width="1.8"/>
+        <text x="338" y="70" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">vision</text>
+        <text x="338" y="83" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">thread</text>
+        <text x="338" y="97" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">canonical artifact</text>
+
+        <!-- Arrow 3→4 label -->
+        <text x="284" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">serves</text>
+
+        <!-- Arrow 4→5 (down to narrative extract) -->
+        <line x1="338" y1="106" x2="338" y2="130" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#tl-arr)"/>
+
+        <!-- Node 5: narrative extract -->
+        <rect x="296" y="132" width="84" height="38" rx="7" fill="#2b2219" stroke="#E8772B" stroke-width="1.2"/>
+        <text x="338" y="148" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">narrative</text>
+        <text x="338" y="160" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#F2A24A">extract</text>
+
+        <!-- Arrow from narrative-extract to Parallax label -->
+        <line x1="380" y1="151" x2="408" y2="151" stroke="#E8772B" stroke-width="1.2" marker-end="url(#tl-arr-m)"/>
+        <rect x="410" y="138" width="62" height="26" rx="6" fill="#17120e" stroke="#9A7F4E" stroke-width="1"/>
+        <text x="441" y="150" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">feeds</text>
+        <text x="441" y="161" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#C9A45C">Parallax</text>
+
+        <!-- Contradiction fork -->
+        <text x="43" y="136" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">contradictions</text>
+
+        <!-- fork lines from decision -->
+        <line x1="236" y1="98" x2="236" y2="160" stroke="#3a2f23" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="236" y1="160" x2="198" y2="188" stroke="#3a2f23" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="236" y1="160" x2="274" y2="188" stroke="#3a2f23" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- fork end labels -->
+        <rect x="162" y="190" width="72" height="18" rx="5" fill="rgba(201,164,92,0.09)" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="198" y="202" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E">candidate fork</text>
+        <rect x="238" y="190" width="72" height="18" rx="5" fill="rgba(232,119,43,0.09)" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="274" y="202" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E">supersession</text>
+
+        <!-- "never silently merged" label -->
+        <text x="236" y="225" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">never silently merged</text>
+
+        <!-- Conservation law badge -->
+        <rect x="170" y="234" width="132" height="14" rx="4" fill="rgba(232,119,43,0.10)" stroke="#9A7F4E" stroke-width="0.7"/>
+        <text x="236" y="244" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#C9A45C">thread conservation law</text>
+
+        <!-- Bottom label -->
+        <text x="240" y="288" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">artifact &rarr; hook &rarr; decision &rarr; vision-thread &rarr; narrative extract &rarr; Parallax</text>
+      </svg>
+    </div>
+
+    <!-- DIAGRAM 2: ARCHITECTURE — Where it lives -->
+    <div class="diag-block">
+      <div class="diag-label">Where it lives</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture diagram: Throughline position in the portfolio">
+        <defs>
+          <linearGradient id="ag-tl" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8772B" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#2b2219" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="ag-parallax" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A45C" stop-opacity="0.16"/>
+            <stop offset="100%" stop-color="#211a13" stop-opacity="0.8"/>
+          </linearGradient>
+          <marker id="tla-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.8"/>
+          </marker>
+          <marker id="tla-arr-out" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.8"/>
+          </marker>
+        </defs>
+
+        <!-- Intent loop veil — background -->
+        <rect x="10" y="14" width="460" height="254" rx="12" fill="none" stroke="#3a2f23" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="26" y="28" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#3a2f23" font-style="italic">Intent loop &mdash; Notice &middot; Spec &middot; Execute &middot; Observe</text>
+
+        <!-- Witness box — top left (feeds Throughline) -->
+        <rect x="20" y="40" width="90" height="52" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
+        <text x="65" y="60" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#9A7F4E">Witness</text>
+        <line x1="36" y1="66" x2="94" y2="66" stroke="#3a2f23" stroke-width="0.7"/>
+        <text x="65" y="78" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">promoted signals</text>
+        <text x="65" y="88" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">input</text>
+
+        <!-- Decisions substrate — bottom left (feeds Throughline) -->
+        <rect x="20" y="180" width="90" height="52" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
+        <text x="65" y="199" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="10" font-weight="700" fill="#9A7F4E">Decisions</text>
+        <line x1="34" y1="205" x2="94" y2="205" stroke="#3a2f23" stroke-width="0.7"/>
+        <text x="65" y="217" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">WS-DDRs · specs</text>
+        <text x="65" y="228" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">trace substrate</text>
+
+        <!-- Throughline — centre (main product) -->
+        <rect x="168" y="72" width="144" height="130" rx="10" fill="url(#ag-tl)" stroke="#E8772B" stroke-width="1.8"/>
+        <text x="240" y="100" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="15" font-weight="800" fill="#ECE3D4">Throughline</text>
+        <line x1="186" y1="108" x2="294" y2="108" stroke="#3a2f23" stroke-width="0.8"/>
+        <!-- Phase badge -->
+        <rect x="192" y="114" width="96" height="15" rx="5" fill="rgba(201,164,92,0.14)" stroke="#9A7F4E" stroke-width="0.7"/>
+        <text x="240" y="124" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#C9A45C">Phase 1 lead · Parallax</text>
+        <!-- Pipeline position -->
+        <text x="240" y="143" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">narrative-coherence</text>
+        <text x="240" y="155" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">intent-trace position</text>
+        <!-- conservation law badge -->
+        <rect x="186" y="167" width="108" height="15" rx="5" fill="rgba(232,119,43,0.10)" stroke="#9A7F4E" stroke-width="0.7"/>
+        <text x="240" y="177" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#C9A45C">thread conservation law</text>
+
+        <!-- Arrows: Witness → Throughline -->
+        <line x1="110" y1="66" x2="166" y2="115" stroke="#9A7F4E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#tla-arr)"/>
+        <text x="132" y="84" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">signals in</text>
+
+        <!-- Arrows: Decisions → Throughline -->
+        <line x1="110" y1="206" x2="166" y2="175" stroke="#9A7F4E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#tla-arr)"/>
+        <text x="128" y="196" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">traces in</text>
+
+        <!-- Parallax box — right (fed by Throughline) -->
+        <rect x="362" y="72" width="100" height="68" rx="8" fill="url(#ag-parallax)" stroke="#C9A45C" stroke-width="1.4"/>
+        <text x="412" y="98" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="13" font-weight="700" fill="#C9A45C">Parallax</text>
+        <line x1="376" y1="104" x2="448" y2="104" stroke="#3a2f23" stroke-width="0.7"/>
+        <text x="412" y="118" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">banner umbrella</text>
+        <text x="412" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">Phase 3 surface</text>
+
+        <!-- Throughline → Parallax arrow -->
+        <line x1="312" y1="137" x2="360" y2="120" stroke="#E8772B" stroke-width="1.5" marker-end="url(#tla-arr-out)"/>
+        <text x="336" y="123" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">feeds</text>
+
+        <!-- Voices sibling — right bottom -->
+        <rect x="362" y="172" width="100" height="44" rx="8" fill="#211a13" stroke="#7E8A98" stroke-width="1"/>
+        <text x="412" y="191" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#AAB4C0">Voices</text>
+        <text x="412" y="205" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#7E8A98">judgment · dissent</text>
+
+        <!-- sibling connector: Throughline ↔ Voices -->
+        <path d="M312,180 Q340,210 360,196" fill="none" stroke="#3a2f23" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="338" y="207" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#3a2f23" font-style="italic">sibling</text>
+
+        <!-- Intent loop corner sweep -->
+        <path d="M460,40 Q472,149 460,258" fill="none" stroke="#3a2f23" stroke-width="1" stroke-dasharray="4,5" marker-end="url(#tla-arr)"/>
+
+        <!-- Bottom label -->
+        <text x="240" y="290" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">Witness + Decisions &rarr; Throughline (narrative-coherence) &rarr; Parallax &nbsp;&middot;&nbsp; sibling: Voices</text>
+      </svg>
+    </div>
+
+  </div>
+</div></section>
+
 <section id="veil" class="veil-section"><div class="wrap">
   <div class="kicker">Behind the veil</div>
   <h2>How Throughline was forged.</h2>
